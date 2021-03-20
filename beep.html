@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Beep</title>
+        <meta charset="utf-8">
+
+        <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #container {
+            display: block;
+            margin: 0 auto 0 auto;
+            text-align: center;
+            width: 100%;
+        }
+        #start-button {
+            width: 2em;
+            height: 2em;
+            margin: 2em auto 0 auto;
+            border: 2px solid #000;
+            border-radius: 4px;
+            font-size: 24pt;
+            background-color: #fff;
+        }
+        .playing {
+            border-top: 1em solid orange;
+        }
+        .paused {
+            border-top: 1em solid silver;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="container" class="paused">
+            <button id="start-button">▶</button>
+        </div>
+
+        <script type="text/javascript">
+ 
+            const interval = 5000;
+            let playing = false;
+            const beep = new Audio("beep.mp3");
+            let timer = null;
+            const button = document.getElementById("start-button");
+            const container = document.getElementById("container");
+
+            button.addEventListener("click", function() {
+                (playing)? stop_beeping() : start_beeping();
+            });
+
+            button.focus();
+
+            function start_beeping() {
+                playing = true;
+                beep.play();
+                timer = setInterval(() => beep.play(), interval);
+                button.textContent = "◼";
+                container.classList.remove("paused");
+                container.classList.add("playing");
+            }
+
+            function stop_beeping() {
+                playing = false;
+                clearInterval(timer);
+                button.textContent = "▶";
+                container.classList.remove("playing");
+                container.classList.add("paused");
+            }
+        </script>
+    </body>
+</html>
