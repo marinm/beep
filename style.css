@@ -1,0 +1,43 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    height: 100%;
+}
+#ring {
+    box-sizing: border-box;
+    margin: auto;
+    display: block;
+    border-radius: 50%;
+    width: fit-content;
+    padding: 0.2vw;
+    font-size: 10vw;
+    width: 20vw;
+    height: 20vw;
+}
+#start-button {
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+#start-button:focus {
+    border: 2vw solid #4D90FE;
+}
+.playing {
+    border: 2vw solid orange;
+}
+.playing #start-button:focus {
+    border: none;
+}
+.paused {
+    border: 2vw solid silver;
+}
+.playing button {
+    background-color: silver;
+}
+.paused button {
+    background-color: silver;
+}

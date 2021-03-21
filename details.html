@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <details>
+            <summary>Section A</summary>
+            <p>A paragraph about A</p>
+        </details>
+        
+        <details>
+            <summary>Section B</summary>
+            <p>A paragrpah about B</p>
+        </details>
+        
+        <details>
+            <summary>Section C</summary>
+            <p>A paragrpah about C</p>
+        </details>
+        
+        <details>
+            <summary>Section D</summary>
+            <p>A paragrpah about D</p>
+        </details>
+        
+        <details>
+            <summary>Section E</summary>
+            <p>A paragrpah about E</p>
+        </details>
+        
+        <details>
+            <summary>Section F</summary>
+            <p>A paragrpah about F</p>
+        </details>
+
+        <script type="text/javascript">
+            const details = document.querySelectorAll("details");
+
+            details.forEach(function(element, key) {
+                element.addEventListener("toggle", function() {
+                    collapse_details_not_focused();
+                });
+            });
+
+            // Close all details panes that are not in focus
+            function collapse_details_not_focused() {
+                details.forEach(function(element, key) {
+                    if (element.querySelector("summary") != document.activeElement) {
+                        element.open = false;
+                    }
+                });
+            }
+        </script>
+        
+    </body>
+</html>
+
